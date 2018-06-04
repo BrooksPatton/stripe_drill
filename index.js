@@ -33,16 +33,15 @@ app.post('/accept-payment', (req, res) => {
   });
 
   charge.then(result => {
-    throw new Error("this didn't work")
-    res.json(result)}
+    res.json(result);}
   )
-  .catch(err => {
-    const error = {
-      message: err.message,
-      failure_code: err.code || 500,
-    }
-    res.json(error);
-  });
+    .catch(err => {
+      const error = {
+        message: err.message,
+        failure_code: err.code || 500,
+      };
+      res.json(error);
+    });
 
 });
 
